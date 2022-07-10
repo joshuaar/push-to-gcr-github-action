@@ -11,7 +11,9 @@
 ###################################################
 
 ALL_IMAGE_TAG=()
-
+echo "==="
+echo $INPUT_GCLOUD_SERVICE_KEY
+echo "===="
 echo "Authenticating docker to gcloud ..."
 if ! echo $INPUT_GCLOUD_SERVICE_KEY | python -m base64 -d >/tmp/key.
     if ! echo $INPUT_GCLOUD_SERVICE_KEY >/tmp/key.json 2>/dev/null; then
