@@ -13,7 +13,7 @@
 ALL_IMAGE_TAG=()
 
 echo "Authenticating docker to gcloud ..."
-if ! echo $INPUT_GCLOUD_SERVICE_KEY | python -m base64 -d >/tmp/key.json 2>/dev/null; then
+if ! echo $INPUT_GCLOUD_SERVICE_KEY | python -m base64 -d >/tmp/key.
     if ! echo $INPUT_GCLOUD_SERVICE_KEY >/tmp/key.json 2>/dev/null; then
         echo "Failed to get gcloud_service_key. It could be plain text or base64 encoded service account JSON file"
         exit 1
@@ -23,7 +23,7 @@ if ! echo $INPUT_GCLOUD_SERVICE_KEY | python -m base64 -d >/tmp/key.json 2>/dev/
 else
     echo "Successfully decoded from base64"
 fi
-
+echo cat /tmp/key.json
 if cat /tmp/key.json | docker login -p -u _json_key --password-stdin https://$INPUT_REGISTRY; then
     echo "Logged in to google cloud ..."
 else
