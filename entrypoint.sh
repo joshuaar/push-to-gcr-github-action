@@ -24,7 +24,7 @@ else
     echo "Successfully decoded from base64"
 fi
 
-if cat /tmp/key.json | docker login -u _json_key --password-stdin https://$INPUT_REGISTRY; then
+if cat /tmp/key.json | docker login -p -u _json_key --password-stdin https://$INPUT_REGISTRY; then
     echo "Logged in to google cloud ..."
 else
     echo "Docker login failed. Exiting ..."
