@@ -23,7 +23,7 @@ if ! echo $INPUT_GCLOUD_SERVICE_KEY | python -m base64 -d >/tmp/key.
 else
     echo "Successfully decoded from base64"
 fi
-echo cat /tmp/key.json
+echo $(cat /tmp/key.json)
 if cat /tmp/key.json | docker login -p -u _json_key --password-stdin https://$INPUT_REGISTRY; then
     echo "Logged in to google cloud ..."
 else
